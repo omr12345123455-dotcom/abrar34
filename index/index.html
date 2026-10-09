@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouquet for Abrar 🌸</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #050508;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* عنوان هادئ بالأعلى */
+    .header-text {
+      position: absolute;
+      top: 40px;
+      color: #ff99cc;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 0 0 12px #ff3385;
+      letter-spacing: 1px;
+      z-index: 10;
+    }
+
+    /* حاوية بوكيه الورد */
+    .canvas {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 550px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 15px rgba(255, 51, 133, 0.4));
+    }
+
+    /* حركة تفتح البتلات */
+    .petal {
+      fill: #ff3385;
+      opacity: 0.85;
+      transform-origin: center;
+      animation: bloom 2s ease-out forwards;
+      stroke: #ff99c2;
+      stroke-width: 1;
+    }
+
+    .petal-center {
+      fill: #ffcc00;
+      filter: drop-shadow(0 0 8px #ffcc00);
+    }
+
+    .stem {
+      stroke: #2d8659;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+
+    .leaf {
+      fill: #206643;
+    }
+
+    .ribbon {
+      fill: #e6005c;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(var(--rot));
+        opacity: 0.9;
+      }
+    }
+
+    /* النصوص المزخرفة في الأسفل */
+    .bottom-bar {
+      position: absolute;
+      bottom: 30px;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .bottom-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff66a3;
+      text-shadow: 0 0 15px #ff3385;
+    }
+
+    .abrar {
+      font-family: 'Courier New', Courier, monospace, cursive;
+      letter-spacing: 2px;
+    }
+
+    /* خلفية نجوم متلألئة */
+    .star {
+      position: absolute;
+      background-color: #ffffff;
+      border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 8px #ff99cc; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-text">الجميع يشتري الورد.. أما أنا أُبرمجه لكِ 💖</div>
+
+  <div class="canvas" onclick="location.reload()">
+    <svg viewBox="0 0 500 700">
+      <!-- الأغصان والسيقان -->
+      <g id="stems">
+        <path class="stem" d="M250,600 Q200,450 180,300" />
+        <path class="stem" d="M250,600 Q250,420 250,250" />
+        <path class="stem" d="M250,600 Q300,450 320,300" />
+        <path class="stem" d="M250,600 Q170,480 130,350" />
+        <path class="stem" d="M250,600 Q330,480 370,350" />
+        
+        <!-- أوراق الشجر -->
+        <path class="leaf" d="M210,480 Q170,460 180,430 Q220,440 210,480 Z" />
+        <path class="leaf" d="M290,480 Q330,460 320,430 Q280,440 290,480 Z" />
+      </g>
+
+      <!-- شريطة البوكيه (Ribbon) -->
+      <g id="ribbon">
+        <path class="ribbon" d="M230,550 Q250,540 270,550 Q280,580 250,570 Q220,580 230,550 Z" />
+        <path class="ribbon" d="M245,565 L220,630 L235,635 L250,570 Z" />
+        <path class="ribbon" d="M255,565 L280,630 L265,635 L250,570 Z" />
+      </g>
+
+      <!-- زهرة 1 (يسار) -->
+      <g transform="translate(180, 300)">
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 0deg; animation-delay: 0.2s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 45deg; animation-delay: 0.4s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 90deg; animation-delay: 0.6s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 135deg; animation-delay: 0.8s;" />
+        <circle class="petal-center" cx="0" cy="0" r="12" />
+      </g>
+
+      <!-- زهرة 2 (الوسط - كبيرة) -->
+      <g transform="translate(250, 250) scale(1.2)">
+        <ellipse class="petal" fill="#ff0066" rx="22" ry="45" style="--rot: 0deg; animation-delay: 0.5s;" />
+        <ellipse class="petal" fill="#ff0066" rx="22" ry="45" style="--rot: 60deg; animation-delay: 0.7s;" />
+        <ellipse class="petal" fill="#ff0066" rx="22" ry="45" style="--rot: 120deg; animation-delay: 0.9s;" />
+        <ellipse class="petal" fill="#ff0066" rx="22" ry="45" style="--rot: 180deg; animation-delay: 1.1s;" />
+        <circle class="petal-center" cx="0" cy="0" r="14" />
+      </g>
+
+      <!-- زهرة 3 (يمين) -->
+      <g transform="translate(320, 300)">
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 15deg; animation-delay: 0.3s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 75deg; animation-delay: 0.5s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 135deg; animation-delay: 0.7s;" />
+        <ellipse class="petal" rx="20" ry="40" style="--rot: 195deg; animation-delay: 0.9s;" />
+        <circle class="petal-center" cx="0" cy="0" r="12" />
+      </g>
+
+      <!-- زهرة 4 (طرف يسار) -->
+      <g transform="translate(130, 350) scale(0.9)">
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 30deg; animation-delay: 0.8s;" />
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 110deg; animation-delay: 1.0s;" />
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 190deg; animation-delay: 1.2s;" />
+        <circle class="petal-center" cx="0" cy="0" r="10" />
+      </g>
+
+      <!-- زهرة 5 (طرف يمين) -->
+      <g transform="translate(370, 350) scale(0.9)">
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 10deg; animation-delay: 0.9s;" />
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 90deg; animation-delay: 1.1s;" />
+        <ellipse class="petal" fill="#ff66b2" rx="18" ry="35" style="--rot: 170deg; animation-delay: 1.3s;" />
+        <circle class="petal-center" cx="0" cy="0" r="10" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- الأسفل: اسم ابرار وكلمة حياتي -->
+  <div class="bottom-bar">
+    <div class="bottom-text abrar">✨ ابرار ✨</div>
+    <div class="bottom-text">حياتي 💗</div>
+  </div>
+
+  <!-- كود بسيط لتوليد نجوم متلألئة في الخلفية -->
+  <script>
+    const starsContainer = document.body;
+    for (let i = 0; i < 45; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
